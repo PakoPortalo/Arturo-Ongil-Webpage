@@ -19,22 +19,14 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function() {
     var menuIcon = document.getElementById('menu-icon');
     var navMenu = document.getElementById('nav-menu');
+    
+    var navHeight = document.getElementById('nav-height');
 
     menuIcon.addEventListener('click', function() {
         navMenu.classList.toggle('show');
-        menuIcon.classList.toggle('hide');
-
+        navHeight.classList.toggle('show');
     });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var menuIcon = document.getElementById('menu-icon');
-    var navMenu = document.getElementById('nav-menu');
-
-    menuIcon.addEventListener('click', function() {
-        navMenu.classList.toggle('show');
-    });
+    
 
     // Solicitar pantalla completa en dispositivos compatibles
     function requestFullscreen() {
