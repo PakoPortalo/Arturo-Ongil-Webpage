@@ -1,75 +1,40 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: #2b2b2b;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(216, 216, 216);
-  }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(242, 255, 0);
-  }
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 21px;
+  background-color: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-
-  .App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-  h1 {
-      animation: App-logo-spin infinite 0.5s linear;
-    }
-  }
-  
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-
-  
-  
-body {
-    margin: 0;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    line-height: 19px;
-    background-color: #0f0f0f;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evitar scroll */
+  touch-action: none; /* Evitar desplazamiento en dispositivos táctiles */
 }
 
 .container {
     padding: 20px;
     text-align: center;
     max-width: 90%;
+}
+
+.small-logo {
+  width: 25%;
+  min-width: 20%;
+  height: auto;
+  transition: width 1s ease, filter 2s ease; /* Añade transición para el tamaño y el filtro */
+}
+
+.small-logo:hover {
+  width: 30%;
+  filter: opacity(0%) brightness(95%); /* Aplica un filtro gris oscuro */
 }
 
 @keyframes fadeIn {
@@ -79,7 +44,7 @@ body {
 
 .fade-in-text {
     opacity: 0; /* Inicio con opacidad 0 */
-    animation: fadeIn 1s ease-in 2s forwards; /* Animación de fade-in de 2 segundos con retraso de 2 segundos */
+    animation: fadeIn 3s ease-in 0.5s forwards; /* Animación de fade-in de 2 segundos con retraso de 2 segundos */
 }
 
 .video-background {
@@ -98,4 +63,255 @@ body {
 
 .video-background.fade-in {
     opacity: 1; /* Estado final con opacidad 1 */
+}
+
+a {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: inherit; /* Hace que el color del texto del enlace sea el mismo que el del elemento padre */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .small-logo {
+      width: 50%; /* Aumenta el tamaño de la imagen en pantallas pequeñas */
+  }
+
+  .small-logo:hover {
+      width: 58%;
+  }
+}
+
+/* Specific of main.html */
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 90vw;
+  margin-top: 50px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.image-container {
+  margin-top: 20px;  /* Espacio superior */
+  margin-bottom: 20px;  /* Espacio inferior */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px; /* Ajusta el espacio entre las imágenes */
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease; /* Transición suave para el grid */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .content {
+    margin-top: -70px;
+  }
+
+  .grid-container {
+    height: 80vh;
+    width: 80vw;
+    grid-template-columns: 1fr; /* Una sola columna */
+    grid-template-rows: repeat(4, auto); /* Cada item en una fila */
+    margin-top: 20px; /* Añade margen superior */
+  }
+}
+
+.grid-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* Hace que el contenedor sea un cuadrado */
+  overflow: hidden;
+  border: 2px solid black; /* Agrega un borde negro */
+  transition: filter 0.3s ease, transform 0.3s ease; /* Transición suave para el cambio de filtro y el crecimiento */
+}
+
+.grid-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7); /* Aplica clareo a la imagen */
+  transition: filter 0.3s ease; /* Transición suave para el cambio de filtro */
+}
+
+.grid-item .centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 2em; /* Puedes ajustar el tamaño de la fuente según tu preferencia */
+  z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+  pointer-events: none; /* Evita que el texto interfiera con la interacción de la imagen */
+  opacity: 0; /* Hace el texto invisible por defecto */
+  transition: opacity 0.3s ease; /* Transición suave para el cambio de opacidad */
+}
+
+.grid-item:hover img {
+  filter: brightness(1); /* Quita el clareo cuando se hace hover */
+}
+
+.grid-item:hover .centered-text {
+  opacity: 1; /* Hace visible el texto cuando se hace hover */
+}
+
+.grid-item:hover {
+  transform: scale(1.1); /* Hace que el contenedor crezca */
+  z-index: 10; /* Asegura que el contenedor esté por encima de los demás */
+}
+
+@keyframes fadeInImg {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in-img1 {
+  opacity: 0; /* Inicio con opacidad 0 */
+  animation: fadeInImg 1s forwards; /* Animación de fade-in de 2 segundos con retraso de 2 segundos */
+}
+
+.fade-in-img2 {
+  opacity: 0; /* Inicio con opacidad 0 */
+  animation: fadeInImg 2s ease-in 0.10s forwards; /* Animación de fade-in de 2 segundos con retraso de 2 segundos */
+}
+
+.fade-in-img3 {
+  opacity: 0; /* Inicio con opacidad 0 */
+  animation: fadeInImg 2s ease-in 0.25s forwards; /* Animación de fade-in de 2 segundos con retraso de 2 segundos */
+}
+
+.fade-in-img4 {
+  opacity: 0; /* Inicio con opacidad 0 */
+  animation: fadeInImg 2s ease-in 0.5s forwards; /* Animación de fade-in de 2 segundos con retraso de 2 segundos */
+}
+
+/* Estilo para el texto centrado */
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    font-size: 2em; /* Puedes ajustar el tamaño de la fuente según tu preferencia */
+    z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+    pointer-events: none; /* Evita que el texto interfiera con la interacción de la imagen */
+    opacity: 0; /* Hace el texto invisible por defecto */
+    transition: opacity 0.3s ease; /* Transición suave para el cambio de opacidad */
+}
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  
+  width: 100%;
+  background-color: black;
+  z-index: 1000;
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.menu-icon {
+  display: none;
+  position: fixed;
+  top: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar nav ul li {
+  margin: 0 15px;
+}
+
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: grey;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .nav {
+    padding-bottom: 100px;
+  }
+  
+  .navbar nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar nav ul.show {
+    display: flex;
+    margin-left: 20px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar nav ul li {
+    margin: 10px 0;
+  }
+
+  .navbar {
+    padding: 0;
+  }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .navbar nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar nav ul.show {
+    display: flex;
+    padding-left: 20px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .navbar nav ul li {
+    margin: 10px 0;
+  }
+
+  .navbar {
+    padding: 0;
+  }
 }
