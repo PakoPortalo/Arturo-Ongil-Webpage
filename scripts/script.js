@@ -25,19 +25,4 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.toggle('show');
         navHeight.classList.toggle('show');
     });
-    
-
-    // Solicitar pantalla completa en dispositivos compatibles
-    function requestFullscreen() {
-        var el = document.documentElement;
-        var rfs = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
-        if (rfs) {
-            rfs.call(el);
-        }
-    }
-
-    // Solicitar pantalla completa al cargar la página en dispositivos móviles
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        requestFullscreen();
-    }
 });
