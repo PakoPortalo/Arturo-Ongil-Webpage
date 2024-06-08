@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', function() {
     var menuIcon = document.getElementById('menu-icon');
     var navMenu = document.getElementById('nav-menu');
-    
     var navHeight = document.getElementById('nav-height');
 
     menuIcon.addEventListener('click', function() {

@@ -95,23 +95,8 @@ a {
   margin-bottom: 20px;  /* Espacio inferior */
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px; /* Ajusta el espacio entre las imágenes */
-  width: 100%;
-  max-width: 500px;
-  transition: all 0.3s ease; /* Transición suave para el grid */
-}
-
-/* Media query para pantallas pequeñas */
+/* Para móviles */
 @media (max-width: 600px) {
-  .content {
-    margin-top: -70px;
-    padding-top: 130px;
-  }
-
   .grid-container {
     height: 80vh;
     width: 80vw;
@@ -119,7 +104,36 @@ a {
     grid-template-rows: repeat(4, auto); /* Cada item en una fila */
     margin-top: 20px; /* Añade margen superior */
   }
+  .grid-item {
+    margin-bottom: 20px; 
+  }
 }
+
+/* Para tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: repeat(2, 1fr); /* Dos filas */
+    gap: 20px; /* Ajusta el espacio entre las imágenes */
+    width: 100%;
+    max-width: 500px;
+    transition: all 0.3s ease; /* Transición suave para el grid */
+  }
+}
+
+/* Para ordenadores */
+@media (min-width: 1025px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    grid-template-rows: 1fr; /* Una sola fila */
+    gap: 20px; /* Ajusta el espacio entre las imágenes */
+    width: 100%;
+    transition: all 0.3s ease; /* Transición suave para el grid */
+  }
+}
+
 
 .grid-item {
   position: relative;
